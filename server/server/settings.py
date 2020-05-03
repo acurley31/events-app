@@ -11,7 +11,10 @@ ALLOWED_HOSTS = [
 ]
 ROOT_URLCONF = 'server.urls'
 WSGI_APPLICATION = 'server.wsgi.application'
-FRONTEND_DIR = os.path.join(BASE_DIR, 'client')
+
+# Client directories
+CLIENT_DIR = os.path.join(os.path.dirname(BASE_DIR), 'client')
+CLIENT_BUILD_DIR = os.path.join(CLIENT_DIR, 'build')
 
 
 # Application definition
@@ -47,7 +50,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(FRONTEND_DIR, 'build')
+            CLIENT_BUILD_DIR,
          ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -106,18 +109,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(FRONTEND_DIR, 'build', 'static'),
+    os.path.join(CLIENT_BUILD_DIR, 'static'),
 ]
 
 
 # CORS headers
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',
-    'http://localhost:8000',
-]
-
+#CORS_ORIGIN_WHITELIST = [
+#    'http://localhost:3000',
+#]
