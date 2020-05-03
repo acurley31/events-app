@@ -22,6 +22,7 @@ class App extends Component {
                     <Route exact path='/events' component={EventList}/>
                     <Route exact path='/events/new' component={NewEvent}/>
                     <Route exact path='/events/:id' component={EventDetail}/>
+                    <Route component={EventList}/>
                 </Switch>
             </BrowserRouter>
         )
