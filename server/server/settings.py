@@ -118,3 +118,9 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    '127.0.0.1',
+    'localhost',
+    'events-database.herokuapp.com',
+]
